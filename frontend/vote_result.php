@@ -9,7 +9,7 @@ $sql="select *
             `topics`.`id`='{$_GET['id']}'";
 
 $rows=q($sql);
-dd($rows);
+// dd($rows);
 ?>
 
 <h1><?=$rows[0]['topic'];?></h1>

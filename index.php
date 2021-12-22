@@ -12,11 +12,11 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./scss/bootstrap.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="container-fluid sticky-top bg-white">
+    <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="row">
             <!-- logo -->
             <div class="col-2">
@@ -27,51 +27,50 @@
 
             <!-- login bar -->
             <div class="col-10 p-3 ">
-                <div class="row-6 col d-block text-right h-50 bg-VeryPeri rounded-left align-items-center ">
-                    <a href="" class="text-light"><i class="fab fa-guilded"></i> Introductory</a>
-                    <a href="" class="text-light"><i class="fas fa-phone-square"></i> Contact us</a>
+                <!-- <div class="row-6 col d-block text-right h-75 bg-VeryPeri rounded-left"> -->
+                <div class="row-6 col d-flex justify-content-center align-items-center h-50 bg-VeryPeri rounded-left">
+                    <a href="" class="text-light"><i class="fab fa-guilded"></i> Introductory &nbsp;</a>
+                    <a href="" class="text-light"><i class="fas fa-phone-square"></i> Contact &nbsp;</a>
                     <!-- <a href="?do=reg" class="text-light"><i class="fas fa-question-circle"></i> Register</a>
                     <a href="" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a> -->
 
-<!-- register/login -->
-<?php 
-// 判斷是否有任何的錯誤訊息存在，有則顯示
-if(isset($_SESSION['error'])){
-//   echo "<span class='text-danger'>".$_SESSION['error']."</span>";
-//alert後 頁面跳轉
-$url = "./default.html";
-echo "<script>alert('account / password error')</script>";
-echo "<script>window.location.href = '$url'</script>";
-}
+                    <!-- register/login -->
+                    <?php
+                    // 判斷是否有任何的錯誤訊息存在，有則顯示
+                    if (isset($_SESSION['error'])) {
+                        //   echo "<span class='text-danger'>".$_SESSION['error']."</span>";
+                        //alert後 頁面跳轉
+                        $url = "./default.html";
+                        echo "<script>alert('account / password error')</script>";
+                        echo "<script>window.location.href = '$url'</script>";
+                    }
 
-//判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
-if(isset($_SESSION['user'])){
-  echo "<span class='px-2 text-light'>Welcome {$_SESSION['user']}</span>";
+                    //判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
+                    if (isset($_SESSION['user'])) {
+                        echo "<span class='px-2 text-light font-weight-bold'>Welcome {$_SESSION['user']}!</span>";
 
-?>
-<div>
-  <a class="btn btn-sm btn-secondary mx-1" href="logout.php">Logout</a>
-</div>
+                    ?>
+                        <div>
+                            <a class="btn btn-sm btn-MutedClay text-light mx-1" href="./backend/index.php">Management</a>
+                            <a class="btn btn-sm btn-HawthornFlose mx-1" href="logout.php">Logout</a>
+                        </div>
 
-<?php
+                    <?php
 
-}else{
-?>
+                    } else {
+                    ?>
+                        <a href="?do=reg" class="text-light"><i class="fas fa-question-circle"></i> Register&nbsp;</a>
+                        <!-- <a href="?do=login" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a> -->
+                        <a href="./default.html" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
 
-<a href="?do=reg" class="text-light"><i class="fas fa-question-circle"></i> Register</a>
-<!-- <a href="?do=login" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a> -->
-<a href="./default.html" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
-
-<?php
-}
-?>
-<!-- register/login end -->
-
-
+                    <?php
+                    }
+                    ?>
+                    <!-- register/login end -->
 
                 </div>
 
-                <div class="row-6 p-3 d-block text-right">
+                <div class="row-6 p-4 d-block text-right">
                     <!-- option -->
                     <a href="">link1</a>
                     <a href="">link2</a>
@@ -83,11 +82,10 @@ if(isset($_SESSION['user'])){
 
             <!-- login bar end -->
 
-
         </div>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <button type="submit" class="btn btn-primary c-fix-1" title="點擊即可進行全站搜尋">search</button>
+            <input type="text" class="form-control shadow-sm" placeholder="Enter...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <button type="submit" class="btn btn-primary c-fix-1 mb-3 shadow-sm" title="點擊即可進行全站搜尋">search</button>
         </div>
     </div>
 
@@ -104,24 +102,24 @@ if(isset($_SESSION['user'])){
             <!-- get pic -->
             <!-- <?php
 
-            //取得資料表中狀態為1的廣告圖片
-            $images = all('ad', ['sh' => 1]);
+                    //取得資料表中狀態為1的廣告圖片
+                    $images = all('ad', ['sh' => 1]);
 
-            //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
-            foreach ($images as $key => $image) {
+                    //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
+                    foreach ($images as $key => $image) {
 
-                //判斷如果是第一筆，會加入一個active的class
-                if ($key == 0) {
-                    echo "<div class='carousel-item active'>";
-                } else {
-                    echo "<div class='carousel-item'>";
-                }
+                        //判斷如果是第一筆，會加入一個active的class
+                        if ($key == 0) {
+                            echo "<div class='carousel-item active'>";
+                        } else {
+                            echo "<div class='carousel-item'>";
+                        }
 
-                //帶入圖片的檔名及資訊
-                echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
-                echo "</div>";
-            }
-            ?> -->
+                        //帶入圖片的檔名及資訊
+                        echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
+                        echo "</div>";
+                    }
+                    ?> -->
             <!-- get pic end -->
 
 
@@ -149,108 +147,28 @@ if(isset($_SESSION['user'])){
         <!-- carousel end -->
     </div>
 
-<!-- vote list -->
-<div class="container">
-<?php
+    <!-- vote list -->
+    <div class="container">
+        <?php
 
-//根據網址帶的do參數內容來決定要include那一個檔案內容
-$do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
+        //根據網址帶的do參數內容來決定要include那一個檔案內容
+        $do = (isset($_GET['do'])) ? $_GET['do'] : 'show_vote_list';
 
-//建立要引入的檔案路徑
-$file="./frontend/".$do.".php";
-if(file_exists($file)){
-    include $file;
-}else{
-    include "./frontend/show_vote_list.php";
-}
-?>
-</div>
-<!-- vote list end -->
-
-    <!-- Media object -->
-    <div class="container mt-3">
-
-        <div class="row">
-            <div class="col-6">
-                <h3><i class="far fa-thumbs-up"></i> title</h3>
-            </div>
-            <div class="col-6">
-                <a href="">new</a>
-                <a href="">hot</a>
-                <a href="">expired</a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="media">
-                    <!-- <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="..."> -->
-                    <div><i class="fas fa-utensils  mr-3 fa-3x"></i></div>
-                    <div class="media-body">
-                        <h5 class="mt-0">何が食べるつもり</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="media">
-                    <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Center-aligned media</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="media">
-                    <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Center-aligned media</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="media">
-                    <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Center-aligned media</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="media">
-                    <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Center-aligned media</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="media">
-                    <img src="https://picsum.photos/id/13/50/50" class="align-self-center mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Center-aligned media</h5>
-                        <p>She'll tur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        //建立要引入的檔案路徑
+        $file = "./frontend/" . $do . ".php";
+        if (file_exists($file)) {
+            include $file;
+        } else {
+            include "./frontend/show_vote_list.php";
+        }
+        ?>
     </div>
-    <!-- Media object end -->
+    <!-- vote list end -->
 
     <!-- tabs -->
     <guide id="link-tabs"></guide>
     <br>
-    <div class="container mt-5 text-center">
+    <div class="container mt-1 text-center">
         <h2>option</h2>
         <br>
         <!-- Nav tabs -->
@@ -478,7 +396,7 @@ if(file_exists($file)){
     <!-- tabs end -->
 
     <!-- footer -->
-    <footer class="pt-3 mt-3 bg-primary text-white text-center">
+    <footer class="pt-3 mt-4 bg-primary text-white text-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
