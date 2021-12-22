@@ -17,10 +17,11 @@ if(rows('users',$_POST)>0){
 }else{
 
     //帳密錯誤時，在session中紀錄錯誤訊息
-    $_SESSION['error']="帳號或密碼錯誤";
+    $_SESSION['error']="account / password error";
 
     //帳密錯誤時，將頁面導回登入頁
     to("../index.php?do=login");
+    
 }
 
 ?>

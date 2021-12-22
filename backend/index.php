@@ -29,7 +29,7 @@ if (!isset($_SESSION['user'])) {
       <div id="carouselExampleSlidesOnly" class="carousel slide  position-relative" data-ride="carousel">
         <div class="carousel-inner position-absolute" style="top:-250px">
 
-
+<!-- 帶入輪播圖片 -->
           <?php
           $images = all('ad', ['sh' => 1]);
 

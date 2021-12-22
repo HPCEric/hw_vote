@@ -37,12 +37,17 @@
 <?php 
 // 判斷是否有任何的錯誤訊息存在，有則顯示
 if(isset($_SESSION['error'])){
-  echo "<span class='text-danger'>".$_SESSION['error']."</span>";
+//   echo "<span class='text-danger'>".$_SESSION['error']."</span>";
+//alert後 頁面跳轉
+$url = "./default.html";
+echo "<script>alert('account / password error')</script>";
+echo "<script>window.location.href = '$url'</script>";
 }
 
 //判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
 if(isset($_SESSION['user'])){
   echo "<span class='px-2 text-light'>Welcome {$_SESSION['user']}</span>";
+
 ?>
 <div>
   <a class="btn btn-sm btn-secondary mx-1" href="logout.php">Logout</a>
@@ -54,7 +59,8 @@ if(isset($_SESSION['user'])){
 ?>
 
 <a href="?do=reg" class="text-light"><i class="fas fa-question-circle"></i> Register</a>
-<a href="?do=login" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+<!-- <a href="?do=login" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a> -->
+<a href="./default.html" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
 
 <?php
 }
