@@ -44,7 +44,10 @@
                         echo "<script>alert('account / password error')</script>";
                         echo "<script>window.location.href = '$url'</script>";
                     }
-
+                    
+                    // $admin=find('users',1);
+                    // $admin['id'];
+                    
                     //判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
                     if (isset($_SESSION['user'])) {
                         echo "<span class='px-2 text-light font-weight-bold'>Welcome {$_SESSION['user']}!</span>";
@@ -55,8 +58,16 @@
                             <a class="btn btn-sm btn-HawthornFlose mx-1" href="logout.php">Logout</a>
                         </div>
 
-                    <?php
+                    
+                    
+                     <!-- } elseif ($admin['id']==1 && isset($_SESSION['user']){  -->
 
+                  
+                        <!-- <div>
+                            <a class="btn btn-sm btn-MutedClay text-light mx-1" href="./backend/index.php">Management</a>
+                            <a class="btn btn-sm btn-HawthornFlose mx-1" href="logout.php">Logout</a>
+                        </div> -->
+                    <?php
                     } else {
                     ?>
                         <a href="?do=reg" class="text-light"><i class="fas fa-question-circle"></i> Register&nbsp;</a>
@@ -83,15 +94,18 @@
             <!-- login bar end -->
 
         </div>
+
         <div class="input-group">
             <input type="text" class="form-control shadow-sm" placeholder="Enter...." aria-label="Recipient's username" aria-describedby="basic-addon2">
             <button type="submit" class="btn btn-primary c-fix-1 mb-3 shadow-sm" title="點擊即可進行全站搜尋">search</button>
         </div>
     </div>
 
+
     <div class="container">
+        <h3 class="mt-3 text-center">Announcement Banner</h3>
         <!-- carousel -->
-        <div id="demo" class="carousel slide  mt-3" data-ride="carousel">
+        <div id="demo" class="carousel slide  mt-1" data-ride="carousel">
 
             <!-- Indicators -->
             <ul class="carousel-indicators">
@@ -99,52 +113,30 @@
                 <li data-target="#demo" data-slide-to="1"></li>
                 <li data-target="#demo" data-slide-to="2"></li>
             </ul>
-            <!-- get pic -->
-            <!-- <?php
-
-                    //取得資料表中狀態為1的廣告圖片
-                    $images = all('ad', ['sh' => 1]);
-
-                    //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
-                    foreach ($images as $key => $image) {
-
-                        //判斷如果是第一筆，會加入一個active的class
-                        if ($key == 0) {
-                            echo "<div class='carousel-item active'>";
-                        } else {
-                            echo "<div class='carousel-item'>";
-                        }
-
-                        //帶入圖片的檔名及資訊
-                        echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
-                        echo "</div>";
-                    }
-                    ?> -->
-            <!-- get pic end -->
 
 
             <!-- The slideshow -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://picsum.photos/id/10/1920/550" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
+            <div class="carousel-inner"><a href="">
+                    <div class="carousel-item active">
+                        <img src="https://picsum.photos/id/10/1920/550" class="d-block w-100">
+                </a></div>
+            <div class="carousel-item"><a href="">
                     <img src="https://picsum.photos/id/11/1920/550" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
+                </a></div>
+            <div class="carousel-item"><a href="">
                     <img src="https://picsum.photos/id/12/1920/550" class="d-block w-100">
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
+                </a></div>
         </div>
-        <!-- carousel end -->
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!-- carousel end -->
     </div>
 
     <!-- vote list -->

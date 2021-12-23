@@ -10,9 +10,10 @@ if(isset($_SESSION['error'])){
 if(rows('users',$_POST)>0){
 
     //帳密正確時，在session中紀錄登入者帳號，以利其他用途
+    // $_SESSION['id']=$_POST['id'];
     $_SESSION['user']=$_POST['account'];
-
     //登入檢查完成，將頁面導回首頁
+   
     to("../index.php");
 }else{
 

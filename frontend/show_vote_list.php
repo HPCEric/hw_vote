@@ -16,15 +16,23 @@
     <div class="row">
         <?php
         $subjects = all('topics');
+        $images = all('ad', ['sh' => 1]);
         $colItem = '<div class="col-6 mt-2">'
-            . '<div class="media">'
-            . '<div><i class="fas fa-utensils mr-3 fa-3x"></i></div>'
-            . '<div class="media-body">';
+            . '<div class="media">';
+            // . '<div><i class="fas fa-utensils mr-3 fa-3x"></i></div>'
+            // ."  <img class='d-block w-25' src='image/{$image['name']}' title='{$image['intro']}'>"
+            // . '<div class="media-body">';
 
 
-        foreach ($subjects as $key => $value) {
+        foreach ($subjects as $key1 => $value) {
             if (rows('options', ['topic_id' => $value['id']]) > 0) {
                 echo $colItem;
+                foreach ($images as $key2 => $image) {
+                    if ($key1 == $key2) {
+                    echo "  <img class='d-block w-25' src='image/{$image['name']}' title='{$image['intro']}'>";
+                    echo '<div class="media-body">';
+                    }
+                }
                 //總投票數顯示
                 $count = q("select sum(`count`) as 'sum' from `options` where `topic_id`='{$value['id']}'");
                 //看結果按鈕 vote_result.php

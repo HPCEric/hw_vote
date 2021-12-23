@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-12-03 09:38:01
+-- 產生時間： 2021-12-23 20:24:32
 -- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.23
+-- PHP 版本： 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,8 +39,14 @@ CREATE TABLE `ad` (
 --
 
 INSERT INTO `ad` (`id`, `name`, `sh`, `intro`) VALUES
-(8, 'image-06.jpg', 1, '準備睡覺的小花'),
-(9, 'image-10.jpg', 1, '金針花海');
+(11, '011_c.png', 1, '01'),
+(12, '002_c.png', 1, '02'),
+(13, '003_c.png', 1, '03'),
+(14, '004_c.png', 1, '04'),
+(15, '005_c.png', 1, '05'),
+(16, '006_c.png', 0, '06'),
+(17, '007_c.png', 1, '07'),
+(18, '008_c.png', 1, '08');
 
 -- --------------------------------------------------------
 
@@ -60,23 +66,30 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `opt`, `count`, `topic_id`) VALUES
-(1, '大衣', 2, 5),
-(2, '短袖', 1, 5),
-(3, '長袖', 0, 5),
-(4, '汗衫', 2, 5),
-(9, '粥', 0, 1),
-(10, 'M', 0, 1),
-(11, '麵', 0, 1),
-(13, '回家', 1, 3),
-(17, '1111', 0, 3),
-(21, '大披薩', 0, 2),
-(22, '肯德基', 0, 2),
-(24, '酸辣粉', 0, 2),
-(25, '李家肉羹', 0, 2),
-(27, '好', 0, 6),
-(28, '不好', 1, 6),
-(29, '想吃飯', 0, 6),
-(30, '減肥中', 0, 6);
+(1, '萬年不敗馬克杯', 2, 5),
+(2, '從小送到大金莎', 1, 5),
+(3, '實用派衛生紙', 0, 5),
+(4, '沒人可以送嗚嗚', 2, 5),
+(9, '王力宏', 0, 1),
+(10, '羅志祥', 0, 1),
+(11, '謝和弦', 1, 1),
+(13, '吃暈車藥', 1, 3),
+(17, '領防暈小卡', 0, 3),
+(21, '新北市耶誕城', 0, 2),
+(22, '餐廳聚餐', 0, 2),
+(24, '線上網聚', 0, 2),
+(25, '沒人陪嗚嗚', 0, 2),
+(27, '去年沒做得再來一次', 0, 6),
+(28, '世界和平', 1, 6),
+(29, '我要脫單', 0, 6),
+(30, '每年都做不到省省吧', 0, 6),
+(31, '林俊傑', 0, 1),
+(32, '這瓶水是不是喜歡我', 0, 3),
+(33, '這麼可愛肯定是男孩子', 0, 3),
+(34, '可不可', 0, 7),
+(35, '迷客夏', 0, 7),
+(36, '清心福全', 0, 7),
+(37, '烏弄', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -94,11 +107,12 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`id`, `topic`) VALUES
-(1, '今天晚餐吃什麼'),
-(2, '亂打一通'),
-(3, '最後一次了'),
-(5, '明天穿什麼好?'),
-(6, '今晚吃火鍋好不?');
+(1, '最喜歡哪一位藝人'),
+(2, '聖誕節要去哪裡?'),
+(3, '暈船了怎麼辦?'),
+(5, '聖誕禮物該選甚麼好?'),
+(6, '新年新希望'),
+(7, '最喜歡的飲料店');
 
 -- --------------------------------------------------------
 
@@ -121,7 +135,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `account`, `password`, `email`, `name`, `gender`, `birthday`) VALUES
-(1, 'mack', '1234', 'macklun@ms7.hinet.net', '劉勤永', '男', '1974-10-07');
+(1, 'admin', '1234', '1234@gmail.com', 'admin', '男', '1996-10-01'),
+(2, 'Jack', '1234', '1234@gmail.com', 'Jack', '男', '2021-12-16');
 
 --
 -- 已傾印資料表的索引
@@ -159,25 +174,25 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
